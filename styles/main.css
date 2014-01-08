@@ -1,0 +1,30 @@
+/* prevent double submission overlay styles */
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+
+    color:#fff;
+    background:lightsteelblue;
+}
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    min-height:100%;
+    background:#fff url(../images/loading.gif) no-repeat fixed 50% 50%;
+    opacity: 0.5;  /* Chrome 4+, Firefox 2+, Safari 3.1+, Opera 9+, IE9, iOS 3.2+, Android 2.1+ */
+    filter: alpha(opacity=50);  /* IE6-IE8 */
+    z-index:99999;
+}
+
+/* ie6 hacks */
+* html .overlay{
+    position: absolute;
+    height: 100%;
+    height:expression(document.body.clientHeight + "px");
+    background-position-y: expression(eval(document.documentElement.scrollTop + (document.documentElement.clientHeight ?  document.documentElement.clientHeight/2 : window.innerHeight/2)) + "px");
+}
